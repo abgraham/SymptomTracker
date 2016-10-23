@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
+- (void)backButtonPressed:(id)sender;
+- (void)forwardButtonPressed:(id)sender;
 
 @end
 

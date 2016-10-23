@@ -17,7 +17,10 @@
     NSDictionary *currentSymptomData;
     NSArray *allSymptoms;
     NSInteger currentSymptomIndex;
+    UIButton *forwardButton;
+    UIButton *backButton;
 }
+
 
 @end
 
@@ -31,6 +34,7 @@
     allSymptoms = [[SymptomAPI sharedInstance] getSymptoms];
     [self showDataForSymptomAtIndex:currentSymptomIndex];
     [self setUpSymptomTable];
+    [self setUpButtons];
 }
 
 - (void)setUpSymptomTable {
@@ -65,6 +69,44 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [currentSymptomData[@"titles"] count];
+}
+
+- (void)forwardButtonPressed:(id)sender {
+    NSLog(@"pressed forward");
+    if (currentSymptomIndex < [allSymptoms count]){
+        currentSymptomIndex += 1;
+        [self showDataForSymptomAtIndex:currentSymptomIndex];
+    }
+}
+
+- (void)backButtonPressed:(id)sender {
+    NSLog(@"pressed back");
+    if (currentSymptomIndex > 0){
+        currentSymptomIndex -= 1;
+        [self showDataForSymptomAtIndex:currentSymptomIndex];
+    }
+}
+
+- (void)setUpButtons {
+    forwardButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    forwardButton.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
+    [forwardButton setTitle:@"Forward" forState:UIControlStateNormal];
+    backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    backButton.frame = CGRectMake(240.0, 210.0, 160.0, 40.0);
+    [backButton setTitle:@"Back" forState:UIControlStateNormal];
+    [forwardButton addTarget:self action:@selector(forwardButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [backButton addTarget:self action:@selector(backButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
+    [forwardButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [backButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:forwardButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:backButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:-forwardButton.frame.size.width/2]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:forwardButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:0.80 constant:0.0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:backButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:0.80 constant:0.0]];
+
+    [self.view addSubview:forwardButton];
+    [self.view addSubview:backButton];
 }
 
 - (void)didReceiveMemoryWarning {
