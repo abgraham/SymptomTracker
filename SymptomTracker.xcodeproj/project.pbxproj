@@ -18,6 +18,7 @@
 		DEC4D7521DBCB1E60087DFC6 /* Symptom+TableRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4D7511DBCB1E60087DFC6 /* Symptom+TableRepresentation.m */; };
 		DEC4D7561DBCB5440087DFC6 /* SymptomAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4D7551DBCB5440087DFC6 /* SymptomAPI.m */; };
 		DEC4D7591DBCB8140087DFC6 /* PersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4D7581DBCB8140087DFC6 /* PersistencyManager.m */; };
+		DEC4D75F1DBE10810087DFC6 /* NewSymptomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4D75E1DBE10810087DFC6 /* NewSymptomViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		DEC4D7551DBCB5440087DFC6 /* SymptomAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomAPI.m; sourceTree = "<group>"; };
 		DEC4D7571DBCB8140087DFC6 /* PersistencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistencyManager.h; sourceTree = "<group>"; };
 		DEC4D7581DBCB8140087DFC6 /* PersistencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistencyManager.m; sourceTree = "<group>"; };
+		DEC4D75D1DBE10810087DFC6 /* NewSymptomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSymptomViewController.h; sourceTree = "<group>"; };
+		DEC4D75E1DBE10810087DFC6 /* NewSymptomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSymptomViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,8 @@
 		DEC4D74C1DBCAEA00087DFC6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DEC4D75D1DBE10810087DFC6 /* NewSymptomViewController.h */,
+				DEC4D75E1DBE10810087DFC6 /* NewSymptomViewController.m */,
 				DEC4D72A1DBCAE5F0087DFC6 /* ViewController.h */,
 				DEC4D72B1DBCAE5F0087DFC6 /* ViewController.m */,
 			);
@@ -270,6 +275,7 @@
 				DEC4D7291DBCAE5F0087DFC6 /* AppDelegate.m in Sources */,
 				DEC4D7261DBCAE5F0087DFC6 /* main.m in Sources */,
 				DEC4D7591DBCB8140087DFC6 /* PersistencyManager.m in Sources */,
+				DEC4D75F1DBE10810087DFC6 /* NewSymptomViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
