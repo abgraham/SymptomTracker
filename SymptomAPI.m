@@ -38,8 +38,8 @@
     return [persistencyManager getSymptoms];
 }
 
-- (NSArray *)symptomsSortedBy:(NSString *)sortedBy {
-    return [persistencyManager symptomsSortedBy:sortedBy];
+- (NSOrderedSet *)traitStringsSortedBy:(NSString *)sortedBy {
+    return [persistencyManager traitStringsSortedBy:sortedBy];
 }
 
 @end

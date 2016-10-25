@@ -6,7 +6,7 @@
 //  Copyright © 2016 Annie Graham. All rights reserved.
 //
 
-#import "Symptom.h"
+#import "Symptom+StringRepresentation.h"
 
 @interface Symptom (TableRepresentation)
 

@@ -7,7 +7,7 @@
 //
 
 #import "PersistencyManager.h"
-#import "Symptom.h"
+#import "Symptom+StringRepresentation.h"
 
 @interface PersistencyManager () {
     NSMutableArray *symptoms;
@@ -34,26 +34,22 @@
     return symptoms;
 }
 
-- (NSArray *)symptomsSortedBy:(NSString *)sortedBy {
-    if ([sortedBy  isEqual: @"Date"]){
-
-        return [self sortWithKey:@"time"];
-    } else if ([sortedBy  isEqual: @"What Hurts"]){
-
-        return [self sortWithKey:@"bodyPart"];
-    } else if ([sortedBy  isEqual: @"Severity"]){
-
-        return [self sortWithKey:@"severity"];
-    }
-    return nil;
-}
-
 - (NSArray *)sortWithKey:(NSString *)key {
 
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray = [symptoms sortedArrayUsingDescriptors:sortDescriptors];
+    return sortedArray;
+}
 
-    return [symptoms sortedArrayUsingDescriptors:sortDescriptors];
+- (NSOrderedSet *)traitStringsSortedBy:(NSString *)key{
+    NSArray *symptomsSortedByTrait = [self sortWithKey:key];
+    NSMutableOrderedSet *stringRepresentations = [NSMutableOrderedSet new];
+    for (int i=0; i<[symptomsSortedByTrait count]; i++){
+        Symptom *symptom = symptomsSortedByTrait[i];
+        [stringRepresentations addObject:[symptom stringOfKey:key]];
+    }
+    return stringRepresentations;
 }
 
 @end

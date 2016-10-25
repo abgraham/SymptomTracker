@@ -11,6 +11,6 @@
 @interface PersistencyManager : NSObject
 
 - (NSArray *)getSymptoms;
-- (NSArray *)symptomsSortedBy:(NSString *)sortedBy;
+- (NSOrderedSet *)traitStringsSortedBy:(NSString *)key;
 
 @end

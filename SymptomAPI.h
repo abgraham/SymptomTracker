@@ -12,6 +12,6 @@
 
 + (SymptomAPI *)sharedInstance;
 - (NSArray *)getSymptoms;
-- (NSArray *)symptomsSortedBy:(NSString *)sortedBy;
+- (NSOrderedSet *)traitStringsSortedBy:(NSString *)sortedBy;
 
 @end

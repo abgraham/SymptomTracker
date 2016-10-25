@@ -19,6 +19,7 @@
 		DEC4D7561DBCB5440087DFC6 /* SymptomAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4D7551DBCB5440087DFC6 /* SymptomAPI.m */; };
 		DEC4D7591DBCB8140087DFC6 /* PersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4D7581DBCB8140087DFC6 /* PersistencyManager.m */; };
 		DEC4D75F1DBE10810087DFC6 /* NewSymptomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4D75E1DBE10810087DFC6 /* NewSymptomViewController.m */; };
+		DEFB4F2D1DBFB5E30036255F /* Symptom+StringRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFB4F2C1DBFB5E30036255F /* Symptom+StringRepresentation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		DEC4D7581DBCB8140087DFC6 /* PersistencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistencyManager.m; sourceTree = "<group>"; };
 		DEC4D75D1DBE10810087DFC6 /* NewSymptomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSymptomViewController.h; sourceTree = "<group>"; };
 		DEC4D75E1DBE10810087DFC6 /* NewSymptomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSymptomViewController.m; sourceTree = "<group>"; };
+		DEFB4F2B1DBFB5E30036255F /* Symptom+StringRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Symptom+StringRepresentation.h"; sourceTree = "<group>"; };
+		DEFB4F2C1DBFB5E30036255F /* Symptom+StringRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Symptom+StringRepresentation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,8 @@
 				DEC4D74E1DBCAEBA0087DFC6 /* Symptom.m */,
 				DEC4D7501DBCB1E60087DFC6 /* Symptom+TableRepresentation.h */,
 				DEC4D7511DBCB1E60087DFC6 /* Symptom+TableRepresentation.m */,
+				DEFB4F2B1DBFB5E30036255F /* Symptom+StringRepresentation.h */,
+				DEFB4F2C1DBFB5E30036255F /* Symptom+StringRepresentation.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 			files = (
 				DEC4D7561DBCB5440087DFC6 /* SymptomAPI.m in Sources */,
 				DEC4D7521DBCB1E60087DFC6 /* Symptom+TableRepresentation.m in Sources */,
+				DEFB4F2D1DBFB5E30036255F /* Symptom+StringRepresentation.m in Sources */,
 				DEC4D72C1DBCAE5F0087DFC6 /* ViewController.m in Sources */,
 				DEC4D74F1DBCAEBA0087DFC6 /* Symptom.m in Sources */,
 				DEC4D7291DBCAE5F0087DFC6 /* AppDelegate.m in Sources */,
@@ -462,6 +468,7 @@
 				DEC4D7451DBCAE5F0087DFC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DEC4D7461DBCAE5F0087DFC6 /* Build configuration list for PBXNativeTarget "SymptomTrackerUITests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +477,7 @@
 				DEC4D7481DBCAE5F0087DFC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

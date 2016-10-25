@@ -67,13 +67,22 @@
     if (!symptomCell){
         symptomCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"symptomCell"];
     }
-    NSInteger segmentIndex = segmentedControl.selectedSegmentIndex;
-    NSString *sortedBy = [segmentedControl titleForSegmentAtIndex:segmentIndex];
-    NSArray *symptomsSortedBySelectedTrait = [[SymptomAPI sharedInstance] symptomsSortedBy:sortedBy];
-    Symptom *symptom = symptomsSortedBySelectedTrait[indexPath.row];
-    NSDictionary *tr = [symptom tr_tableRepresentation];
-    symptomCell.textLabel.text = tr[@"values"][segmentIndex];
+    NSOrderedSet *orderedStringsOfSelectedTrait = [[SymptomAPI sharedInstance] traitStringsSortedBy:[self keyPathForSegmentTitle]];
+    symptomCell.textLabel.text = orderedStringsOfSelectedTrait[indexPath.row];
     return symptomCell;
+}
+
+- (NSString *)keyPathForSegmentTitle {
+    NSInteger segmentIndex = segmentedControl.selectedSegmentIndex;
+    switch (segmentIndex){
+        case 0:
+            return @"time";
+        case 1:
+            return @"bodyPart";
+        case 2:
+            return @"severity";
+    }
+    return nil;
 }
 
 - (void)showDataForSymptomAtIndex:(NSInteger)symptomIndex {
@@ -89,9 +98,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == symptomTable){
         return [currentSymptomData[@"titles"] count];
+    } else {
+        // tableView is the symptomSelector
+        NSOrderedSet *orderedStringsOfSelectedTrait = [[SymptomAPI sharedInstance] traitStringsSortedBy:[self keyPathForSegmentTitle]];
+        return [orderedStringsOfSelectedTrait count];
     }
-    // tableView is the symptomSelector
-    return [allSymptoms count];
+    return 0;
 }
 
 - (void)forwardButtonPressed:(id)sender {
