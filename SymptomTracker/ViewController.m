@@ -20,6 +20,8 @@
     UIButton *forwardButton;
     UIButton *backButton;
     UIBarButtonItem *addSymptom;
+    UISegmentedControl *segmentedControl;
+    UITableView *symptomSelector;
 }
 
 - (void)setUpBarButton;
@@ -37,6 +39,8 @@
     [self setUpSymptomTable];
     [self setUpBarButton];
     [self setUpButtons];
+    [self setUpSegmentedControl];
+    [self setUpSymptomSelector];
 }
 
 - (void)setUpSymptomTable {
@@ -54,7 +58,6 @@
     }
     cell.textLabel.text = currentSymptomData[@"titles"][indexPath.row];
     cell.detailTextLabel.text = currentSymptomData[@"values"][indexPath.row];
-    //cell.detailTextLabel.text = @"value";
 
     return cell;
 }
@@ -70,7 +73,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [currentSymptomData[@"titles"] count];
+    if (tableView == symptomTable){
+        return [currentSymptomData[@"titles"] count];
+    }
+    // tableView is the symptomSelector
+    return [allSymptoms count];
 }
 
 - (void)forwardButtonPressed:(id)sender {
@@ -109,6 +116,21 @@ backButton.frame = CGRectMake(100.0, self.view.frame.size.height-100, 100.0, 40.
     addSymptom = [UIBarButtonItem new];
     addSymptom.title = @"Add symptom";
     self.navigationController.navigationBar.topItem.rightBarButtonItem = addSymptom;
+}
+
+- (void)setUpSegmentedControl {
+     NSArray *titleArray = [NSArray arrayWithObjects: @"Date", @"What hurt", @"Severity", nil];
+    segmentedControl = [[UISegmentedControl alloc] initWithItems:titleArray];
+    segmentedControl.selectedSegmentIndex = 0;
+    segmentedControl.frame = CGRectMake(self.view.center.x-125, self.view.center.y, 250, 45);
+    [self.view addSubview:segmentedControl];
+}
+
+- (void)setUpSymptomSelector {
+    symptomSelector = [[UITableView alloc] initWithFrame:CGRectMake(self.view.center.x-150, self.view.center.y-220, 300, 200) style:UITableViewStylePlain];
+    symptomSelector.delegate = self;
+    symptomSelector.dataSource = self;
+    [self.view addSubview:symptomSelector];
 }
 
 - (void)didReceiveMemoryWarning {
