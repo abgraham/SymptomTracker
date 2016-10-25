@@ -38,4 +38,15 @@
     return [persistencyManager getSymptoms];
 }
 
+- (NSArray *)symptomsSortedBy:(NSString *)sortedBy {
+    if ([sortedBy  isEqual: @"Date"]){
+        return [NSArray arrayWithObjects:@"10/24/16", @"11/30/16", nil];
+    } else if ([sortedBy  isEqual: @"What Hurts"]){
+        return [NSArray arrayWithObjects:@"Stomach", @"Chin", nil];
+    } else if ([sortedBy  isEqual: @"Severity"]){
+        return [NSArray arrayWithObjects:@"4", @"8", nil];
+    }
+    return nil;
+}
+
 @end

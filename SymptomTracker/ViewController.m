@@ -52,14 +52,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"symptomCell"];
-    if (!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"symptomCell"];
+    if (tableView == symptomTable){
+        UITableViewCell *traitCell = [tableView dequeueReusableCellWithIdentifier:@"traitCell"];
+        if (!traitCell){
+            traitCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"traitCell"];
+        }
+        traitCell.textLabel.text = currentSymptomData[@"titles"][indexPath.row];
+        traitCell.detailTextLabel.text = currentSymptomData[@"values"][indexPath.row];
+        
+        return traitCell;
     }
-    cell.textLabel.text = currentSymptomData[@"titles"][indexPath.row];
-    cell.detailTextLabel.text = currentSymptomData[@"values"][indexPath.row];
-
-    return cell;
+    // tableView is symptomSelector
+    UITableViewCell *symptomCell = [tableView dequeueReusableCellWithIdentifier:@"symptomCell"];
+    if (!symptomCell){
+        symptomCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"symptomCell"];
+    }
+    NSString *sortedBy = [segmentedControl titleForSegmentAtIndex:segmentedControl.selectedSegmentIndex];
+    NSArray *symptomsSortedBySelectedTrait = [[SymptomAPI sharedInstance] symptomsSortedBy:sortedBy];
+    symptomCell.textLabel.text = symptomsSortedBySelectedTrait[indexPath.row];
+    return symptomCell;
 }
 
 - (void)showDataForSymptomAtIndex:(NSInteger)symptomIndex {
@@ -119,11 +130,16 @@ backButton.frame = CGRectMake(100.0, self.view.frame.size.height-100, 100.0, 40.
 }
 
 - (void)setUpSegmentedControl {
-     NSArray *titleArray = [NSArray arrayWithObjects: @"Date", @"What hurt", @"Severity", nil];
+     NSArray *titleArray = [NSArray arrayWithObjects: @"Date", @"Severity", @"What Hurts", nil];
     segmentedControl = [[UISegmentedControl alloc] initWithItems:titleArray];
     segmentedControl.selectedSegmentIndex = 0;
     segmentedControl.frame = CGRectMake(self.view.center.x-125, self.view.center.y, 250, 45);
+    [segmentedControl addObserver:self forKeyPath:@"selectedSegmentIndex" options:NSKeyValueObservingOptionNew context:nil];
     [self.view addSubview:segmentedControl];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    [symptomSelector reloadData];
 }
 
 - (void)setUpSymptomSelector {
