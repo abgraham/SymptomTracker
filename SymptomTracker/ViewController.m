@@ -34,13 +34,29 @@
     [super viewDidLoad];
 
     currentSymptomIndex = 0;
-    allSymptoms = [[SymptomAPI sharedInstance] getSymptoms];
-    [self showDataForSymptomAtIndex:currentSymptomIndex];
-    [self setUpSymptomTable];
-    [self setUpBarButton];
-    [self setUpButtons];
     [self setUpSegmentedControl];
     [self setUpSymptomSelector];
+    [self getRelevantSymptoms];
+    [self setUpSymptomTable];
+    [self showDataForSymptomAtIndex:currentSymptomIndex];
+    [self setUpBarButton];
+    [self setUpButtons];
+}
+
+- (void)getRelevantSymptoms{
+    NSInteger segmentedControlIndex = segmentedControl.selectedSegmentIndex;
+    UITableViewCell *selectedCell = [symptomSelector cellForRowAtIndexPath:[symptomSelector indexPathForSelectedRow]];
+    switch (segmentedControlIndex){
+        case 0:
+            allSymptoms = [[SymptomAPI sharedInstance] symptomsWithDate:selectedCell.textLabel.text];
+            break;
+        case 1:
+            allSymptoms = [[SymptomAPI sharedInstance] symptomsWithSeverity:selectedCell.textLabel.text];
+            break;
+        case 2:
+            allSymptoms = [[SymptomAPI sharedInstance] symptomsWithBodyPart:selectedCell.textLabel.text];
+            break;
+    }
 }
 
 - (void)setUpSymptomTable {
@@ -48,6 +64,12 @@
     symptomTable.delegate = self;
     symptomTable.dataSource = self;
     [self.view addSubview:symptomTable];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self getRelevantSymptoms];
+    currentSymptomIndex = 0;
+    [self showDataForSymptomAtIndex:currentSymptomIndex];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,9 +100,9 @@
         case 0:
             return @"time";
         case 1:
-            return @"bodyPart";
-        case 2:
             return @"severity";
+        case 2:
+            return @"bodyPart";
     }
     return nil;
 }
@@ -155,6 +177,12 @@ backButton.frame = CGRectMake(100.0, self.view.frame.size.height-100, 100.0, 40.
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
     [symptomSelector reloadData];
+    [symptomSelector selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                                 animated:NO
+                           scrollPosition:0];
+    currentSymptomIndex = 0;
+    [self getRelevantSymptoms];
+    [self showDataForSymptomAtIndex:currentSymptomIndex];
 }
 
 - (void)setUpSymptomSelector {
@@ -162,6 +190,9 @@ backButton.frame = CGRectMake(100.0, self.view.frame.size.height-100, 100.0, 40.
     symptomSelector.delegate = self;
     symptomSelector.dataSource = self;
     [self.view addSubview:symptomSelector];
+    [symptomSelector selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                             animated:NO
+                       scrollPosition:0];
 }
 
 - (void)didReceiveMemoryWarning {

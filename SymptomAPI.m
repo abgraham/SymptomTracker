@@ -42,4 +42,16 @@
     return [persistencyManager traitStringsSortedBy:sortedBy];
 }
 
+- (NSArray *)symptomsWithDate:(NSString *)date{
+    return [persistencyManager symptomsWithDate:date];
+}
+
+- (NSArray *)symptomsWithSeverity:(NSString *)severity{
+    return [persistencyManager symptomsWithSeverity:severity];
+}
+- (NSArray *)symptomsWithBodyPart:(NSString *)bodyPart{
+    return [persistencyManager symptomsWithBodyPart:bodyPart];
+}
+
+
 @end

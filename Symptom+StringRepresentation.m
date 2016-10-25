@@ -12,7 +12,7 @@
 
 - (NSString *)str_time {
     NSDateFormatter *formatter = [NSDateFormatter new];
-    [formatter setDateFormat:@"yyyy-mm-dd"];
+    [formatter setDateFormat:@"YYYY-MM-dd"];
     return [formatter stringFromDate:self.time];
 }
 

@@ -13,5 +13,8 @@
 + (SymptomAPI *)sharedInstance;
 - (NSArray *)getSymptoms;
 - (NSOrderedSet *)traitStringsSortedBy:(NSString *)sortedBy;
+- (NSArray *)symptomsWithDate:(NSString *)date;
+- (NSArray *)symptomsWithSeverity:(NSString *)severity;
+- (NSArray *)symptomsWithBodyPart:(NSString *)bodyPart;
 
 @end

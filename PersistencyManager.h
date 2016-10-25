@@ -12,5 +12,8 @@
 
 - (NSArray *)getSymptoms;
 - (NSOrderedSet *)traitStringsSortedBy:(NSString *)key;
+- (NSArray *)symptomsWithDate:(NSString *)date;
+- (NSArray *)symptomsWithSeverity:(NSString *)severity;
+- (NSArray *)symptomsWithBodyPart:(NSString *)bodyPart;
 
 @end

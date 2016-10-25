@@ -52,4 +52,31 @@
     return stringRepresentations;
 }
 
+- (NSArray *)symptomsWithDate:(NSString *)date{
+    NSArray *filteredArray = [symptoms filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id object, NSDictionary *bindings) {
+        if ([[(Symptom *)object str_time] isEqual:date]){
+            return YES;
+        } return NO;
+    }]];
+    //symptoms = [filteredArray mutableCopy];
+    return filteredArray;
+}
+
+- (NSArray *)symptomsWithBodyPart:(NSString *)bodyPart{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.bodyPart == %@", bodyPart];
+    NSArray *filteredArray = [symptoms filteredArrayUsingPredicate:predicate];
+    //symptoms = [filteredArray mutableCopy];
+    return filteredArray;
+}
+
+- (NSArray *)symptomsWithSeverity:(NSString *)severity{
+    NSArray *filteredArray = [symptoms filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id object, NSDictionary *bindings) {
+        if ([[(Symptom *)object str_severity] isEqual:severity]){
+            return YES;
+        } return NO;
+    }]];
+    //symptoms = [filteredArray mutableCopy];
+    return filteredArray;
+}
+
 @end
