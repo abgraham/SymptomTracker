@@ -11,8 +11,8 @@
 @interface Symptom : NSObject
 
 @property (nonatomic, copy) NSDate *time;
-@property (nonatomic) NSInteger painLevel;
+@property (nonatomic) NSInteger severity;
 @property (nonatomic, copy) NSString *bodyPart;
-- (id)initWithTime:(NSDate *)time painLevel:(NSInteger)painLevel bodyPart:(NSString *)bodyPart;
+- (id)initWithTime:(NSDate *)time severity:(NSInteger)severity bodyPart:(NSString *)bodyPart;
 
 @end

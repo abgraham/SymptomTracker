@@ -10,11 +10,11 @@
 
 @implementation Symptom
 
-- (id)initWithTime:(NSDate *)time painLevel:(NSInteger)painLevel bodyPart:(NSString *)bodyPart {
+- (id)initWithTime:(NSDate *)time severity:(NSInteger)severity bodyPart:(NSString *)bodyPart {
     self = [super init];
     if (self){
         self.time = time;
-        self.painLevel = painLevel;
+        self.severity = severity;
         self.bodyPart = bodyPart;
     }
     return self;
