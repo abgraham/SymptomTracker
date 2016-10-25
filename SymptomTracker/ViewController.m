@@ -40,13 +40,9 @@
 }
 
 - (void)setUpSymptomTable {
-    symptomTable = [[UITableView alloc] initWithFrame:CGRectMake(self.view.center.x-150, self.view.center.y-200, 300, 400) style:UITableViewStyleGrouped];
-//    symptomTable.translatesAutoresizingMaskIntoConstraints = NO;
-//    self.view.translatesAutoresizingMaskIntoConstraints = NO;
+    symptomTable = [[UITableView alloc] initWithFrame:CGRectMake(self.view.center.x-150, self.view.center.y+55, 300, 150) style:UITableViewStylePlain];
     symptomTable.delegate = self;
     symptomTable.dataSource = self;
-//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:symptomTable attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
-//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:symptomTable attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
     [self.view addSubview:symptomTable];
 }
 
@@ -102,16 +98,8 @@ backButton.frame = CGRectMake(100.0, self.view.frame.size.height-100, 100.0, 40.
     [backButton setTitle:@"Back" forState:UIControlStateNormal];
     [forwardButton addTarget:self action:@selector(forwardButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [backButton addTarget:self action:@selector(backButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    forwardButton.backgroundColor = [UIColor blueColor];
-    backButton.backgroundColor = [UIColor blueColor];
-
-//    [forwardButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-//    [backButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-//    [self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
-//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:forwardButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
-//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:backButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:-forwardButton.frame.size.width/2]];
-//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:forwardButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:0.90 constant:0.0]];
-//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:backButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:0.90 constant:0.0]];
+    forwardButton.backgroundColor = [UIColor lightGrayColor];
+    backButton.backgroundColor = [UIColor lightGrayColor];
 
     [self.view addSubview:forwardButton];
     [self.view addSubview:backButton];
