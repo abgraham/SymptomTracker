@@ -67,9 +67,12 @@
     if (!symptomCell){
         symptomCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"symptomCell"];
     }
-    NSString *sortedBy = [segmentedControl titleForSegmentAtIndex:segmentedControl.selectedSegmentIndex];
+    NSInteger segmentIndex = segmentedControl.selectedSegmentIndex;
+    NSString *sortedBy = [segmentedControl titleForSegmentAtIndex:segmentIndex];
     NSArray *symptomsSortedBySelectedTrait = [[SymptomAPI sharedInstance] symptomsSortedBy:sortedBy];
-    symptomCell.textLabel.text = symptomsSortedBySelectedTrait[indexPath.row];
+    Symptom *symptom = symptomsSortedBySelectedTrait[indexPath.row];
+    NSDictionary *tr = [symptom tr_tableRepresentation];
+    symptomCell.textLabel.text = tr[@"values"][segmentIndex];
     return symptomCell;
 }
 
