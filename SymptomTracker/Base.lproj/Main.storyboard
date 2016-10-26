@@ -32,7 +32,7 @@
                         <viewControllerLayoutGuide type="top" id="jqc-tF-lVQ"/>
                         <viewControllerLayoutGuide type="bottom" id="VPI-eV-G5p"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Bp9-mv-Kge">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="newSymptomViewController" id="Bp9-mv-Kge">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

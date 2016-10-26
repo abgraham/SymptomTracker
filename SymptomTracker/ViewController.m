@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Symptom+TableRepresentation.h"
 #import "SymptomAPI.h"
+#import "NewSymptomViewController.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource> {
 
@@ -160,9 +161,18 @@ backButton.frame = CGRectMake(100.0, self.view.frame.size.height-100, 100.0, 40.
     [self.view addSubview:backButton];
 }
 
+- (void)addSymptomPressed:(id)sender {
+    NSLog(@"Add symptom pressed");
+    NewSymptomViewController *newSymptomVC =[self.storyboard instantiateViewControllerWithIdentifier:@"newSymptomViewController"];
+    [self.navigationController pushViewController:newSymptomVC animated:YES];
+}
+
 - (void)setUpBarButton {
-    addSymptom = [UIBarButtonItem new];
-    addSymptom.title = @"Add symptom";
+    addSymptom = [[UIBarButtonItem alloc]
+                  initWithTitle:@"Add symptom"
+                  style:UIBarButtonItemStylePlain
+                  target:self
+                  action:@selector(addSymptomPressed:)];
     self.navigationController.navigationBar.topItem.rightBarButtonItem = addSymptom;
 }
 
