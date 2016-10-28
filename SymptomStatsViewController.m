@@ -33,18 +33,23 @@
     NSInteger toSeverityValue = [toSeverity.text integerValue];
     NSLog(@"FROM AND TO: %ld %ld", fromSeverityValue, toSeverityValue);
 
-    NSDictionary *foodGroupCount = [[SymptomAPI sharedInstance] foodGroupCountFromSeverity:fromSeverityValue toSeverity:toSeverityValue fromDate:fromDate toDate:toDate];
-    [self showFoodGroupCount:foodGroupCount];
-    NSDictionary *timeOfDayCount = [[SymptomAPI sharedInstance] timeOfDayCountFromSeverity:fromSeverityValue toSeverity:toSeverityValue fromDate:fromDate toDate:toDate];
-    [self showTimeOfDayCount:timeOfDayCount];
+    NSDictionary *foodGroupDict = [[SymptomAPI sharedInstance] foodGroupCountFromSeverity:fromSeverityValue toSeverity:toSeverityValue fromDate:fromDate toDate:toDate];
+    [self showFoodGroupCount:foodGroupDict];
+    NSDictionary *timeOfDayDict = [[SymptomAPI sharedInstance] timeOfDayCountFromSeverity:fromSeverityValue toSeverity:toSeverityValue fromDate:fromDate toDate:toDate];
+    [self showTimeOfDayCount:timeOfDayDict];
 }
 
 - (void)showFoodGroupCount:(NSDictionary *)foodGroupDict {
-    [foodGroupCount setText:[NSString stringWithFormat:@"%@", foodGroupDict]];
+    [foodGroupCount setText:[self formatStatsDictionary:foodGroupDict]];
 }
 
 - (void)showTimeOfDayCount:(NSDictionary *)timeOfDayDict {
-    [timeOfDayCount setText:[NSString stringWithFormat:@"%@", timeOfDayDict]];
+    [timeOfDayCount setText:[self formatStatsDictionary:timeOfDayDict]];
+}
+
+- (NSString *)formatStatsDictionary:(NSDictionary *)statsDictionary {
+    NSString *dictionaryString = [NSString stringWithFormat:@"%@", statsDictionary];
+    return [dictionaryString substringWithRange:NSMakeRange(1, dictionaryString.length-2)];
 }
 
 @end
