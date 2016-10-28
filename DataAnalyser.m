@@ -9,6 +9,7 @@
 
 #import "DataAnalyser.h"
 #import "SymptomAPI.h"
+#import "Symptom.h"
 
 @implementation DataAnalyser
 
@@ -17,11 +18,22 @@
     NSArray *foodGroups = [[SymptomAPI sharedInstance] getFoodGroups];
     [foodGroups enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString *groupName = obj;
-        foodGroupsToCount:[foodGroupsCount setValue:0 forKey:groupName];
+        foodGroupsCount[groupName] = [NSNumber numberWithInteger:0];
     }];
     NSArray *relevantSymptoms = [self symptomsFromSeverity:lowerSeverity toSeverity:higherSeverity fromDate:lowerDate toDate:higherDate];
+
+    [relevantSymptoms enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        Symptom *symptom = obj;
+        NSArray *symptomFoodGroups = symptom.foodGroups;
+        [symptomFoodGroups enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSString *foodGroup = obj;
+            foodGroupsCount[foodGroup] = [NSNumber numberWithInteger:([foodGroupsCount[foodGroup] intValue] + 1)];
+        }];
+    }];
     return foodGroupsCount;
 }
+
+// to update a value: stats[@"Attack"] = @([stats[@"Attack"] intValue] + (level * 5));
 
 - (NSArray *)symptomsFromSeverity:(NSInteger)lowerSeverity toSeverity:(NSInteger)
     higherSeverity fromDate:(NSDate *)lowerDate toDate:(NSDate *)higherDate {
