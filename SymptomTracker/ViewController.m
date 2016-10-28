@@ -42,6 +42,19 @@
     [self showDataForSymptomAtIndex:currentSymptomIndex];
     [self setUpBarButton];
     [self setUpButtons];
+    [self testAnalyser];
+}
+
+- (void)testAnalyser {
+    NSDateComponents* tomorrowComponents = [NSDateComponents new] ;
+    tomorrowComponents.day = 1 ;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDate *now = [NSDate date];
+    NSDate* tomorrow = [calendar dateByAddingComponents:tomorrowComponents toDate:now options:0] ;
+    NSDateComponents* yesterdayComponents = [NSDateComponents new] ;
+    yesterdayComponents.day = -1 ;
+    NSDate* yesterday = [calendar dateByAddingComponents:yesterdayComponents toDate:now options:0] ;
+    [[SymptomAPI sharedInstance] foodGroupCountFromSeverity:3 toSeverity:9 fromDate:yesterday toDate:tomorrow];
 }
 
 - (void)getRelevantSymptoms{

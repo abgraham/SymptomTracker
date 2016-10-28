@@ -11,6 +11,7 @@
 
 @interface PersistencyManager () {
     NSMutableArray *symptoms;
+    NSArray *foodGroups;
 };
 
 - (NSArray *)sortWithKey:(NSString *)key;
@@ -23,7 +24,14 @@
 - (id)init {
     self = [super init];
     if (self){
-        symptoms = [NSMutableArray arrayWithArray:@[[[Symptom alloc] initWithTime:[NSDate date] severity:2 bodyPart:@"stomach"], [[Symptom alloc] initWithTime:[NSDate date] severity:3 bodyPart:@"chin"]]];
+        Symptom *symptom1 = [[Symptom alloc] initWithTime:[NSDate date] severity:2 bodyPart:@"stomach" foodGroups:[NSArray arrayWithObjects:@"dairy", @"gluten", @"fiber", nil]];
+        Symptom *symptom2 = [[Symptom alloc] initWithTime:[NSDate date] severity:3 bodyPart:@"chin" foodGroups:[NSArray arrayWithObjects: @"dairy", @"gluten", nil]];
+        Symptom *symptom3 = [[Symptom alloc] initWithTime:[NSDate date] severity:4 bodyPart:@"chin" foodGroups:[NSArray arrayWithObjects: @"dairy", @"gluten", @"eggs", nil]];
+        Symptom *symptom4 = [[Symptom alloc] initWithTime:[NSDate date] severity:5 bodyPart:@"chin" foodGroups:[NSArray arrayWithObjects: @"dairy", @"gluten", @"eggs", nil]];
+
+        symptoms = [NSMutableArray arrayWithObjects:symptom1, symptom2, symptom3, symptom4, nil];
+
+        foodGroups = [NSArray arrayWithObjects:@"gluten", @"dairy", @"eggs", @"high-fiber", @"meat", @"high-fat", nil];
     }
 
     return self;
@@ -32,6 +40,11 @@
 - (NSArray *)getSymptoms {
 
     return symptoms;
+}
+
+- (NSArray *)getFoodGroups {
+
+    return foodGroups;
 }
 
 - (NSArray *)sortWithKey:(NSString *)key {

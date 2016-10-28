@@ -16,5 +16,8 @@
 - (NSArray *)symptomsWithDate:(NSString *)date;
 - (NSArray *)symptomsWithSeverity:(NSString *)severity;
 - (NSArray *)symptomsWithBodyPart:(NSString *)bodyPart;
+- (NSDictionary *)foodGroupCountFromSeverity:(NSInteger)lowerSeverity toSeverity:(NSInteger)higherSeverity fromDate:(NSDate *)lowerDate toDate:(NSDate *)higherDate;
+- (NSArray *)getFoodGroups;
+
 
 @end

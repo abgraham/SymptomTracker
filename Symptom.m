@@ -10,12 +10,13 @@
 
 @implementation Symptom
 
-- (id)initWithTime:(NSDate *)time severity:(NSInteger)severity bodyPart:(NSString *)bodyPart {
+- (id)initWithTime:(NSDate *)time severity:(NSInteger)severity bodyPart:(NSString *)bodyPart foodGroups:(NSArray *)foodGroups {
     self = [super init];
     if (self){
         self.time = time;
         self.severity = severity;
         self.bodyPart = bodyPart;
+        self.foodGroups = foodGroups;
     }
     return self;
 }

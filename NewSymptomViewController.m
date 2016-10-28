@@ -8,11 +8,34 @@
 
 #import "NewSymptomViewController.h"
 
+@interface NewSymptomViewController () {
+    UIPickerView *severityPicker;
+    UIDatePicker *datePicker;
+    UITextField *locationField;
+}
+@end
+
 @implementation NewSymptomViewController
 
 - (void)viewDidLoad {
-    NSLog(@"On new symptom view");
+NSLog(@"On new symptom view");
+    //[self setUpSeverityPicker];
+    //[self setUpDatePicker];
 }
 
+- (void)setUpSeverityPicker {
+    NSLog(@"setUpSeverityPicker");
+}
+
+- (void)setUpDatePicker {
+    //datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(50, 50, 200, 100)];
+    datePicker = [UIDatePicker new];
+    //[datePicker addTarget:self action:@selector(pickerChanged:)];
+    [self.view addSubview:datePicker];
+}
+
+- (void)pickerChanged:(id)sender {
+    NSLog(@"picker changed");
+}
 
 @end

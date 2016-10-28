@@ -20,6 +20,7 @@
 		DEC4D7591DBCB8140087DFC6 /* PersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4D7581DBCB8140087DFC6 /* PersistencyManager.m */; };
 		DEC4D75F1DBE10810087DFC6 /* NewSymptomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4D75E1DBE10810087DFC6 /* NewSymptomViewController.m */; };
 		DEFB4F2D1DBFB5E30036255F /* Symptom+StringRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFB4F2C1DBFB5E30036255F /* Symptom+StringRepresentation.m */; };
+		DEFB4F331DC3975F0036255F /* DataAnalyser.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFB4F321DC3975F0036255F /* DataAnalyser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		DEC4D75E1DBE10810087DFC6 /* NewSymptomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSymptomViewController.m; sourceTree = "<group>"; };
 		DEFB4F2B1DBFB5E30036255F /* Symptom+StringRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Symptom+StringRepresentation.h"; sourceTree = "<group>"; };
 		DEFB4F2C1DBFB5E30036255F /* Symptom+StringRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Symptom+StringRepresentation.m"; sourceTree = "<group>"; };
+		DEFB4F311DC3975F0036255F /* DataAnalyser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataAnalyser.h; sourceTree = "<group>"; };
+		DEFB4F321DC3975F0036255F /* DataAnalyser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAnalyser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 			children = (
 				DEC4D7541DBCB5440087DFC6 /* SymptomAPI.h */,
 				DEC4D7551DBCB5440087DFC6 /* SymptomAPI.m */,
+				DEFB4F311DC3975F0036255F /* DataAnalyser.h */,
+				DEFB4F321DC3975F0036255F /* DataAnalyser.m */,
 				DEC4D7571DBCB8140087DFC6 /* PersistencyManager.h */,
 				DEC4D7581DBCB8140087DFC6 /* PersistencyManager.m */,
 			);
@@ -279,6 +284,7 @@
 				DEC4D72C1DBCAE5F0087DFC6 /* ViewController.m in Sources */,
 				DEC4D74F1DBCAEBA0087DFC6 /* Symptom.m in Sources */,
 				DEC4D7291DBCAE5F0087DFC6 /* AppDelegate.m in Sources */,
+				DEFB4F331DC3975F0036255F /* DataAnalyser.m in Sources */,
 				DEC4D7261DBCAE5F0087DFC6 /* main.m in Sources */,
 				DEC4D7591DBCB8140087DFC6 /* PersistencyManager.m in Sources */,
 				DEC4D75F1DBE10810087DFC6 /* NewSymptomViewController.m in Sources */,

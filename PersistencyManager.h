@@ -11,6 +11,7 @@
 @interface PersistencyManager : NSObject
 
 - (NSArray *)getSymptoms;
+- (NSArray *)getFoodGroups;
 - (NSOrderedSet *)traitStringsSortedBy:(NSString *)key;
 - (NSArray *)symptomsWithDate:(NSString *)date;
 - (NSArray *)symptomsWithSeverity:(NSString *)severity;

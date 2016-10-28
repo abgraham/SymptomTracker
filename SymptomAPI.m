@@ -8,9 +8,11 @@
 
 #import "SymptomAPI.h"
 #import "PersistencyManager.h"
+#import "DataAnalyser.h"
 
 @interface SymptomAPI () {
     PersistencyManager *persistencyManager;
+    DataAnalyser *dataAnalyser;
 }
 
 @end
@@ -30,6 +32,7 @@
     self = [super init];
     if (self) {
         persistencyManager = [PersistencyManager new];
+        dataAnalyser = [DataAnalyser new];
     }
     return self;
 }
@@ -51,6 +54,14 @@
 }
 - (NSArray *)symptomsWithBodyPart:(NSString *)bodyPart{
     return [persistencyManager symptomsWithBodyPart:bodyPart];
+}
+
+- (NSDictionary *)foodGroupCountFromSeverity:(NSInteger)lowerSeverity toSeverity:(NSInteger)higherSeverity fromDate:(NSDate *)lowerDate toDate:(NSDate *)higherDate {
+    return [dataAnalyser foodGroupCountFromSeverity:lowerSeverity toSeverity:higherSeverity fromDate:lowerDate toDate:higherDate];
+}
+
+- (NSArray *)getFoodGroups {
+    return [persistencyManager getFoodGroups];
 }
 
 

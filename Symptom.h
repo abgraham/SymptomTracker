@@ -13,6 +13,7 @@
 @property (nonatomic, copy) NSDate *time;
 @property (nonatomic) NSInteger severity;
 @property (nonatomic, copy) NSString *bodyPart;
-- (id)initWithTime:(NSDate *)time severity:(NSInteger)severity bodyPart:(NSString *)bodyPart;
+@property (nonatomic) NSArray *foodGroups;
+- (id)initWithTime:(NSDate *)time severity:(NSInteger)severity bodyPart:(NSString *)bodyPart foodGroups:(NSArray *)foodGroups;
 
 @end
