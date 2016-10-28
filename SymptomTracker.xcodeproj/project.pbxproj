@@ -22,6 +22,7 @@
 		DEFB4F2D1DBFB5E30036255F /* Symptom+StringRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFB4F2C1DBFB5E30036255F /* Symptom+StringRepresentation.m */; };
 		DEFB4F331DC3975F0036255F /* DataAnalyser.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFB4F321DC3975F0036255F /* DataAnalyser.m */; };
 		DEFB4F391DC3AA580036255F /* Symptom+ExtraProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFB4F381DC3AA580036255F /* Symptom+ExtraProperties.m */; };
+		DEFB4F3C1DC3BBA10036255F /* SymptomStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFB4F3B1DC3BBA10036255F /* SymptomStatsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		DEFB4F321DC3975F0036255F /* DataAnalyser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAnalyser.m; sourceTree = "<group>"; };
 		DEFB4F371DC3AA580036255F /* Symptom+ExtraProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Symptom+ExtraProperties.h"; sourceTree = "<group>"; };
 		DEFB4F381DC3AA580036255F /* Symptom+ExtraProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Symptom+ExtraProperties.m"; sourceTree = "<group>"; };
+		DEFB4F3A1DC3BBA10036255F /* SymptomStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomStatsViewController.h; sourceTree = "<group>"; };
+		DEFB4F3B1DC3BBA10036255F /* SymptomStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomStatsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				DEC4D75D1DBE10810087DFC6 /* NewSymptomViewController.h */,
+				DEFB4F3A1DC3BBA10036255F /* SymptomStatsViewController.h */,
+				DEFB4F3B1DC3BBA10036255F /* SymptomStatsViewController.m */,
 				DEC4D75E1DBE10810087DFC6 /* NewSymptomViewController.m */,
 				DEC4D72A1DBCAE5F0087DFC6 /* ViewController.h */,
 				DEC4D72B1DBCAE5F0087DFC6 /* ViewController.m */,
@@ -293,6 +298,7 @@
 				DEFB4F391DC3AA580036255F /* Symptom+ExtraProperties.m in Sources */,
 				DEC4D7261DBCAE5F0087DFC6 /* main.m in Sources */,
 				DEC4D7591DBCB8140087DFC6 /* PersistencyManager.m in Sources */,
+				DEFB4F3C1DC3BBA10036255F /* SymptomStatsViewController.m in Sources */,
 				DEC4D75F1DBE10810087DFC6 /* NewSymptomViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
