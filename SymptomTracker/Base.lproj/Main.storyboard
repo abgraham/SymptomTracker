@@ -66,6 +66,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tlr-du-ozg">
                                 <rect key="frame" x="85" y="422" width="183" height="30"/>
                                 <state key="normal" title="Show stats for these filters"/>
+                                <connections>
+                                    <action selector="showStatsPressed:" destination="93G-7M-B13" eventType="touchUpInside" id="Pkg-4z-0qy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,6 +78,12 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="T3H-1g-5WI"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="fromDatePicker" destination="oqc-Rr-2oy" id="nQq-u1-Wtq"/>
+                        <outlet property="fromSeverity" destination="QK9-d4-K1L" id="GLZ-mt-rhS"/>
+                        <outlet property="toDatePicker" destination="AuW-1v-4qg" id="RHS-jF-iiR"/>
+                        <outlet property="toSeverity" destination="csH-Nr-UvQ" id="y7e-xJ-DPa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5P-nb-fVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
