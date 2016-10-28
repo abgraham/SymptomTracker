@@ -7,6 +7,7 @@
 //
 
 #import "SymptomStatsViewController.h"
+#import "SymptomAPI.h"
 
 @interface SymptomStatsViewController () {
 
@@ -14,6 +15,8 @@
     __weak IBOutlet UIDatePicker *fromDatePicker;
     __weak IBOutlet UITextField *fromSeverity;
     __weak IBOutlet UITextField *toSeverity;
+    __weak IBOutlet UITextView *foodGroupCount;
+    __weak IBOutlet UITextView *timeOfDayCount;
 }
 @end
 
@@ -29,16 +32,19 @@
     NSInteger fromSeverityValue = [fromSeverity.text integerValue];
     NSInteger toSeverityValue = [toSeverity.text integerValue];
     NSLog(@"FROM AND TO: %ld %ld", fromSeverityValue, toSeverityValue);
-    //[self showFoodGroupCount:foodGroupCount];
-    //[self showTimeOfDayCount:timeOfDayCount];
+
+    NSDictionary *foodGroupCount = [[SymptomAPI sharedInstance] foodGroupCountFromSeverity:fromSeverityValue toSeverity:toSeverityValue fromDate:fromDate toDate:toDate];
+    [self showFoodGroupCount:foodGroupCount];
+    NSDictionary *timeOfDayCount = [[SymptomAPI sharedInstance] timeOfDayCountFromSeverity:fromSeverityValue toSeverity:toSeverityValue fromDate:fromDate toDate:toDate];
+    [self showTimeOfDayCount:timeOfDayCount];
 }
 
-- (void)showFoodGroupCount:(NSDictionary *)foodGroupCount {
-
+- (void)showFoodGroupCount:(NSDictionary *)foodGroupDict {
+    [foodGroupCount setText:[NSString stringWithFormat:@"%@", foodGroupDict]];
 }
 
-- (void)showTimeOfDayCount:(NSDictionary *)timeOfDayCount {
-    NSString *stringRepresentation;
+- (void)showTimeOfDayCount:(NSDictionary *)timeOfDayDict {
+    [timeOfDayCount setText:[NSString stringWithFormat:@"%@", timeOfDayDict]];
 }
 
 @end
