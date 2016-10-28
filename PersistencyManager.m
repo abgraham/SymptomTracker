@@ -24,8 +24,18 @@
 - (id)init {
     self = [super init];
     if (self){
-        Symptom *symptom1 = [[Symptom alloc] initWithTime:[NSDate date] severity:2 bodyPart:@"stomach" foodGroups:[NSArray arrayWithObjects:@"dairy", @"gluten", @"fiber", nil]];
-        Symptom *symptom2 = [[Symptom alloc] initWithTime:[NSDate date] severity:3 bodyPart:@"chin" foodGroups:[NSArray arrayWithObjects: @"dairy", @"gluten", nil]];
+
+        NSDateComponents* tomorrowComponents = [NSDateComponents new] ;
+        tomorrowComponents.hour = -12;
+        NSCalendar* calendar = [NSCalendar currentCalendar];
+        NSDate *now = [NSDate date];
+        NSDate* tomorrow = [calendar dateByAddingComponents:tomorrowComponents toDate:now options:0] ;
+        NSDateComponents* yesterdayComponents = [NSDateComponents new] ;
+        yesterdayComponents.hour = -6;
+        NSDate* yesterday = [calendar dateByAddingComponents:yesterdayComponents toDate:now options:0] ;
+
+        Symptom *symptom1 = [[Symptom alloc] initWithTime:yesterday severity:2 bodyPart:@"stomach" foodGroups:[NSArray arrayWithObjects:@"dairy", @"gluten", @"fiber", nil]];
+        Symptom *symptom2 = [[Symptom alloc] initWithTime:tomorrow severity:3 bodyPart:@"chin" foodGroups:[NSArray arrayWithObjects: @"dairy", @"gluten", nil]];
         Symptom *symptom3 = [[Symptom alloc] initWithTime:[NSDate date] severity:4 bodyPart:@"chin" foodGroups:[NSArray arrayWithObjects: @"dairy", @"gluten", @"eggs", nil]];
         Symptom *symptom4 = [[Symptom alloc] initWithTime:[NSDate date] severity:5 bodyPart:@"chin" foodGroups:[NSArray arrayWithObjects: @"dairy", @"gluten", @"eggs", nil]];
 

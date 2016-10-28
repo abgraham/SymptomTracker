@@ -55,6 +55,7 @@
     yesterdayComponents.day = -1 ;
     NSDate* yesterday = [calendar dateByAddingComponents:yesterdayComponents toDate:now options:0] ;
     [[SymptomAPI sharedInstance] foodGroupCountFromSeverity:3 toSeverity:9 fromDate:yesterday toDate:tomorrow];
+    [[SymptomAPI sharedInstance] timeOfDayCountFromSeverity:0 toSeverity:9 fromDate:yesterday toDate:tomorrow];
 }
 
 - (void)getRelevantSymptoms{

@@ -25,6 +25,7 @@
     dispatch_once(&oncePredicate, ^{
         sharedInstance = [SymptomAPI new];
     });
+
     return sharedInstance;
 }
 
@@ -34,34 +35,47 @@
         persistencyManager = [PersistencyManager new];
         dataAnalyser = [DataAnalyser new];
     }
+
     return self;
 }
 
 - (NSArray *)getSymptoms {
+
     return [persistencyManager getSymptoms];
 }
 
 - (NSOrderedSet *)traitStringsSortedBy:(NSString *)sortedBy {
+
     return [persistencyManager traitStringsSortedBy:sortedBy];
 }
 
 - (NSArray *)symptomsWithDate:(NSString *)date{
+
     return [persistencyManager symptomsWithDate:date];
 }
 
 - (NSArray *)symptomsWithSeverity:(NSString *)severity{
+
     return [persistencyManager symptomsWithSeverity:severity];
 }
 - (NSArray *)symptomsWithBodyPart:(NSString *)bodyPart{
+
     return [persistencyManager symptomsWithBodyPart:bodyPart];
 }
 
 - (NSDictionary *)foodGroupCountFromSeverity:(NSInteger)lowerSeverity toSeverity:(NSInteger)higherSeverity fromDate:(NSDate *)lowerDate toDate:(NSDate *)higherDate {
+
     return [dataAnalyser foodGroupCountFromSeverity:lowerSeverity toSeverity:higherSeverity fromDate:lowerDate toDate:higherDate];
 }
 
 - (NSArray *)getFoodGroups {
+
     return [persistencyManager getFoodGroups];
+}
+
+- (NSDictionary *)timeOfDayCountFromSeverity:(NSInteger)lowerSeverity toSeverity:(NSInteger)higherSeverity fromDate:(NSDate *)lowerDate toDate:(NSDate *)higherDate{
+
+    return [dataAnalyser timeOfDayCountFromSeverity:lowerSeverity toSeverity:higherSeverity fromDate:lowerDate toDate:higherDate];
 }
 
 
