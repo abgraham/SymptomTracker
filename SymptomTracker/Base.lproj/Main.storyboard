@@ -122,6 +122,11 @@
                                 <segue destination="93G-7M-B13" kind="push" id="4LV-AK-DhG"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add a symptom" id="3T2-ID-vXo">
+                            <connections>
+                                <segue destination="KdG-xW-3du" kind="push" id="fM9-Ad-HMp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -139,8 +144,41 @@
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="newSymptomViewController" id="Bp9-mv-Kge">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cia-JM-uKD">
+                                <rect key="frame" x="-6" y="334" width="600" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="499379853.71548498">
+                                    <!--2016-10-28 20:37:33 +0000-->
+                                </date>
+                            </datePicker>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08A-XT-UuM">
+                                <rect key="frame" x="80" y="229" width="217" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYr-iw-2oq">
+                                <rect key="frame" x="20" y="72" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-cQ-OUU">
+                                <rect key="frame" x="492" y="562" width="95" height="30"/>
+                                <state key="normal" title="Add symptom"/>
+                                <connections>
+                                    <action selector="addSymptomPressed:" destination="KdG-xW-3du" eventType="touchUpInside" id="cYT-RJ-KmV"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ExV-4O-8lR">
+                                <rect key="frame" x="-11" y="110" width="565" height="77"/>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="icq-Pv-qfF"/>
+                    <connections>
+                        <outlet property="severityPicker" destination="ExV-4O-8lR" id="bkb-Ks-ytO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9C-eq-jeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -98,8 +98,11 @@
             return YES;
         } return NO;
     }]];
-    //symptoms = [filteredArray mutableCopy];
     return filteredArray;
+}
+
+- (void)addSymptomWithSeverity:(NSInteger)severity location:(NSString *)location foodGroups:(NSArray *)symptomFoodGroups date:(NSDate *)date{
+    [symptoms addObject:[[Symptom alloc] initWithTime:date severity:severity bodyPart:location foodGroups:symptomFoodGroups]];
 }
 
 @end

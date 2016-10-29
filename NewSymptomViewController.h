@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewSymptomViewController : UIViewController
+@interface NewSymptomViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @end

@@ -9,9 +9,11 @@
 #import "NewSymptomViewController.h"
 
 @interface NewSymptomViewController () {
-    UIPickerView *severityPicker;
+    
+    __weak IBOutlet UIPickerView *severityPicker;
     UIDatePicker *datePicker;
     UITextField *locationField;
+    NSArray *severityPickerData;
 }
 @end
 
@@ -19,12 +21,16 @@
 
 - (void)viewDidLoad {
 NSLog(@"On new symptom view");
-    //[self setUpSeverityPicker];
+    [self setUpSeverityPicker];
     //[self setUpDatePicker];
 }
 
 - (void)setUpSeverityPicker {
     NSLog(@"setUpSeverityPicker");
+    severityPickerData = [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5",
+                          @"6", @"7", @"8", @"9", @"10", nil];
+    severityPicker.delegate = self;
+    severityPicker.dataSource = self;
 }
 
 - (void)setUpDatePicker {
@@ -36,6 +42,35 @@ NSLog(@"On new symptom view");
 
 - (void)pickerChanged:(id)sender {
     NSLog(@"picker changed");
+}
+
+- (IBAction)addSymptomPressed:(id)sender {
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [severityPickerData count];
+}
+
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return severityPickerData[row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
+    // Handle the selection
+
+    NSLog(@"hi");
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    int sectionWidth = 300;
+
+    return sectionWidth;
 }
 
 @end

@@ -40,7 +40,7 @@
     [self getRelevantSymptoms];
     [self setUpSymptomTable];
     [self showDataForSymptomAtIndex:currentSymptomIndex];
-    [self setUpBarButton];
+    //[self setUpBarButton];
     [self setUpButtons];
     [self testAnalyser];
 }
