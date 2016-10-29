@@ -7,13 +7,18 @@
 //
 
 #import "NewSymptomViewController.h"
+#import "SymptomAPI.h"
 
 @interface NewSymptomViewController () {
-    
+
     __weak IBOutlet UIPickerView *severityPicker;
-    UIDatePicker *datePicker;
-    UITextField *locationField;
+    __weak IBOutlet UITextField *locationField;
+    __weak IBOutlet UIPickerView *foodGroupPicker;
+
+    __weak IBOutlet UIDatePicker *datePicker;
+    __weak IBOutlet UITextView *foodGroupList;
     NSArray *severityPickerData;
+    NSArray *foodGroupData;
 }
 @end
 
@@ -22,7 +27,7 @@
 - (void)viewDidLoad {
 NSLog(@"On new symptom view");
     [self setUpSeverityPicker];
-    //[self setUpDatePicker];
+    [self setUpFoodGroupPicker];
 }
 
 - (void)setUpSeverityPicker {
@@ -33,11 +38,10 @@ NSLog(@"On new symptom view");
     severityPicker.dataSource = self;
 }
 
-- (void)setUpDatePicker {
-    //datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(50, 50, 200, 100)];
-    datePicker = [UIDatePicker new];
-    //[datePicker addTarget:self action:@selector(pickerChanged:)];
-    [self.view addSubview:datePicker];
+- (void)setUpFoodGroupPicker {
+    foodGroupData = [[SymptomAPI sharedInstance] getFoodGroups];
+    foodGroupPicker.delegate = self;
+    foodGroupPicker.dataSource = self;
 }
 
 - (void)pickerChanged:(id)sender {
@@ -53,12 +57,20 @@ NSLog(@"On new symptom view");
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [severityPickerData count];
+    if (pickerView == severityPicker){
+return [severityPickerData count];
+    } else {
+        return [foodGroupData count];
+    }
 }
 
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return severityPickerData[row];
+    if (pickerView == severityPicker){
+        return severityPickerData[row];
+    } else {
+        return foodGroupData[row];
+    }
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
@@ -67,10 +79,7 @@ NSLog(@"On new symptom view");
     NSLog(@"hi");
 }
 
-- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
-    int sectionWidth = 300;
-
-    return sectionWidth;
+- (IBAction)addFoodGroupPressed:(id)sender {
 }
 
 @end
