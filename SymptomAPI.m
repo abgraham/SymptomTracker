@@ -78,5 +78,9 @@
     return [dataAnalyser timeOfDayCountFromSeverity:lowerSeverity toSeverity:higherSeverity fromDate:lowerDate toDate:higherDate];
 }
 
+- (void)addSymptomWithSeverity:(NSInteger)severity location:(NSString *)location foodGroups:(NSArray *)foodGroups date:(NSDate *)date {
+    [persistencyManager addSymptomWithSeverity:severity location:location foodGroups:foodGroups date:date];
+}
+
 
 @end

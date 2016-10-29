@@ -17,6 +17,7 @@
 
     __weak IBOutlet UIDatePicker *datePicker;
     __weak IBOutlet UITextView *foodGroupList;
+    NSMutableArray *symptomFoodGroups;
     NSArray *severityPickerData;
     NSArray *foodGroupData;
 }
@@ -28,6 +29,7 @@
 NSLog(@"On new symptom view");
     [self setUpSeverityPicker];
     [self setUpFoodGroupPicker];
+    symptomFoodGroups = [NSMutableArray new];
 }
 
 - (void)setUpSeverityPicker {
@@ -49,6 +51,11 @@ NSLog(@"On new symptom view");
 }
 
 - (IBAction)addSymptomPressed:(id)sender {
+    NSInteger severityPickerIndex = [severityPicker selectedRowInComponent:0];
+    NSInteger severity = [severityPickerData[severityPickerIndex] integerValue];
+    NSString *location = locationField.text;
+    NSDate *date = datePicker.date;
+    [[SymptomAPI sharedInstance] addSymptomWithSeverity:severity location:location foodGroups:symptomFoodGroups date:date];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -73,13 +80,9 @@ return [severityPickerData count];
     }
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
-    // Handle the selection
-
-    NSLog(@"hi");
-}
-
 - (IBAction)addFoodGroupPressed:(id)sender {
+    NSInteger foodGroupPickerIndex = [foodGroupPicker selectedRowInComponent:0];
+    [symptomFoodGroups addObject:foodGroupData[foodGroupPickerIndex]];
 }
 
 @end
