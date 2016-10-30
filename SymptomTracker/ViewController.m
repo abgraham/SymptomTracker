@@ -42,7 +42,7 @@
     [self showDataForSymptomAtIndex:currentSymptomIndex];
     //[self setUpBarButton];
     [self setUpButtons];
-    [self testAnalyser];
+    //[self testAnalyser];
 }
 
 - (void)testAnalyser {

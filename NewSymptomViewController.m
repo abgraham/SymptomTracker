@@ -51,11 +51,13 @@ NSLog(@"On new symptom view");
 }
 
 - (IBAction)addSymptomPressed:(id)sender {
-    NSInteger severityPickerIndex = [severityPicker selectedRowInComponent:0];
-    NSInteger severity = [severityPickerData[severityPickerIndex] integerValue];
     NSString *location = locationField.text;
-    NSDate *date = datePicker.date;
-    [[SymptomAPI sharedInstance] addSymptomWithSeverity:severity location:location foodGroups:symptomFoodGroups date:date];
+    if (![location isEqualToString:@""]){
+        NSInteger severityPickerIndex = [severityPicker selectedRowInComponent:0];
+        NSInteger severity = [severityPickerData[severityPickerIndex] integerValue];
+        NSDate *date = datePicker.date;
+        [[SymptomAPI sharedInstance] addSymptomWithSeverity:severity location:location foodGroups:symptomFoodGroups date:date];
+    }
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
