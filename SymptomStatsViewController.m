@@ -31,7 +31,6 @@
     NSDate *toDate = toDatePicker.date;
     NSInteger fromSeverityValue = [fromSeverity.text integerValue];
     NSInteger toSeverityValue = [toSeverity.text integerValue];
-    NSLog(@"FROM AND TO: %ld %ld", fromSeverityValue, toSeverityValue);
 
     NSDictionary *foodGroupDict = [[SymptomAPI sharedInstance] foodGroupCountFromSeverity:fromSeverityValue toSeverity:toSeverityValue fromDate:fromDate toDate:toDate];
     [self showFoodGroupCount:foodGroupDict];

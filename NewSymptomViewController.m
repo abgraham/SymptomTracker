@@ -26,14 +26,14 @@
 @implementation NewSymptomViewController
 
 - (void)viewDidLoad {
-NSLog(@"On new symptom view");
+
     [self setUpSeverityPicker];
     [self setUpFoodGroupPicker];
     symptomFoodGroups = [NSMutableArray new];
 }
 
 - (void)setUpSeverityPicker {
-    NSLog(@"setUpSeverityPicker");
+
     severityPickerData = [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5",
                           @"6", @"7", @"8", @"9", @"10", nil];
     severityPicker.delegate = self;
@@ -61,14 +61,17 @@ NSLog(@"On new symptom view");
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+
     return 1;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     if (pickerView == severityPicker){
-return [severityPickerData count];
+
+        return [severityPickerData count];
     } else {
+
         return [foodGroupData count];
     }
 }
@@ -76,8 +79,10 @@ return [severityPickerData count];
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     if (pickerView == severityPicker){
+
         return severityPickerData[row];
     } else {
+
         return foodGroupData[row];
     }
 }

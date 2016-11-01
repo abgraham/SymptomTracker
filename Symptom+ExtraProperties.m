@@ -19,14 +19,19 @@
     NSInteger hour = [components hour] - 2;
 
     if (hour >= 6 && hour <= 11) {
+
         return @"Morning";
     } else if (hour <= 13) {
+
         return @"Midday";
     } else if (hour <= 16) {
+
         return @"Afternoon";
     } else if (hour <= 22) {
+
         return @"Evening";
     }
+
     return @"Nighttime";
 }
 

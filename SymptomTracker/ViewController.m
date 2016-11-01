@@ -40,12 +40,11 @@
     [self getRelevantSymptoms];
     [self setUpSymptomTable];
     [self showDataForSymptomAtIndex:currentSymptomIndex];
-    //[self setUpBarButton];
     [self setUpButtons];
-    //[self testAnalyser];
 }
 
 - (void)testAnalyser {
+
     NSDateComponents* tomorrowComponents = [NSDateComponents new] ;
     tomorrowComponents.day = 1 ;
     NSCalendar* calendar = [NSCalendar currentCalendar];
@@ -59,8 +58,10 @@
 }
 
 - (void)getRelevantSymptoms{
+
     NSInteger segmentedControlIndex = segmentedControl.selectedSegmentIndex;
     UITableViewCell *selectedCell = [symptomSelector cellForRowAtIndexPath:[symptomSelector indexPathForSelectedRow]];
+
     switch (segmentedControlIndex){
         case 0:
             allSymptoms = [[SymptomAPI sharedInstance] symptomsWithDate:selectedCell.textLabel.text];
@@ -75,6 +76,7 @@
 }
 
 - (void)setUpSymptomTable {
+
     symptomTable = [[UITableView alloc] initWithFrame:CGRectMake(self.view.center.x-150, self.view.center.y+55, 300, 150) style:UITableViewStylePlain];
     symptomTable.delegate = self;
     symptomTable.dataSource = self;
@@ -82,6 +84,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
     [self getRelevantSymptoms];
     currentSymptomIndex = 0;
     [self showDataForSymptomAtIndex:currentSymptomIndex];
@@ -90,6 +93,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (tableView == symptomTable){
+
         UITableViewCell *traitCell = [tableView dequeueReusableCellWithIdentifier:@"traitCell"];
         if (!traitCell){
             traitCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"traitCell"];
@@ -110,6 +114,7 @@
 }
 
 - (NSString *)keyPathForSegmentTitle {
+
     NSInteger segmentIndex = segmentedControl.selectedSegmentIndex;
     switch (segmentIndex){
         case 0:
@@ -123,6 +128,7 @@
 }
 
 - (void)showDataForSymptomAtIndex:(NSInteger)symptomIndex {
+
     if (symptomIndex < [allSymptoms count]){
         Symptom *symptom = [allSymptoms objectAtIndex:symptomIndex];
         currentSymptomData = [symptom tr_tableRepresentation];
@@ -136,7 +142,6 @@
     if (tableView == symptomTable){
         return [currentSymptomData[@"titles"] count];
     } else {
-        // tableView is the symptomSelector
         NSOrderedSet *orderedStringsOfSelectedTrait = [[SymptomAPI sharedInstance] traitStringsSortedBy:[self keyPathForSegmentTitle]];
         return [orderedStringsOfSelectedTrait count];
     }
@@ -144,7 +149,7 @@
 }
 
 - (void)forwardButtonPressed:(id)sender {
-    NSLog(@"pressed forward");
+
     if (currentSymptomIndex < [allSymptoms count]){
         currentSymptomIndex += 1;
         [self showDataForSymptomAtIndex:currentSymptomIndex];
@@ -152,7 +157,7 @@
 }
 
 - (void)backButtonPressed:(id)sender {
-    NSLog(@"pressed back");
+
     if (currentSymptomIndex > 0){
         currentSymptomIndex -= 1;
         [self showDataForSymptomAtIndex:currentSymptomIndex];
@@ -160,6 +165,7 @@
 }
 
 - (void)setUpButtons {
+
     forwardButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
 forwardButton.frame = CGRectMake(210.0, self.view.frame.size.height-100, 100.0, 40.0);
     [forwardButton setTitle:@"Forward" forState:UIControlStateNormal];
@@ -176,22 +182,14 @@ backButton.frame = CGRectMake(100.0, self.view.frame.size.height-100, 100.0, 40.
 }
 
 - (void)addSymptomPressed:(id)sender {
-    NSLog(@"Add symptom pressed");
+
     NewSymptomViewController *newSymptomVC =[self.storyboard instantiateViewControllerWithIdentifier:@"newSymptomViewController"];
     [self.navigationController pushViewController:newSymptomVC animated:YES];
 }
 
-- (void)setUpBarButton {
-    addSymptom = [[UIBarButtonItem alloc]
-                  initWithTitle:@"Add symptom"
-                  style:UIBarButtonItemStylePlain
-                  target:self
-                  action:@selector(addSymptomPressed:)];
-    self.navigationController.navigationBar.topItem.rightBarButtonItem = addSymptom;
-}
-
 - (void)setUpSegmentedControl {
-     NSArray *titleArray = [NSArray arrayWithObjects: @"Date", @"Severity", @"What Hurts", nil];
+
+    NSArray *titleArray = [NSArray arrayWithObjects: @"Date", @"Severity", @"What Hurts", nil];
     segmentedControl = [[UISegmentedControl alloc] initWithItems:titleArray];
     segmentedControl.selectedSegmentIndex = 0;
     segmentedControl.frame = CGRectMake(self.view.center.x-125, self.view.center.y, 250, 45);
@@ -200,6 +198,7 @@ backButton.frame = CGRectMake(100.0, self.view.frame.size.height-100, 100.0, 40.
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+
     [symptomSelector reloadData];
     [symptomSelector selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
                                  animated:NO
@@ -210,6 +209,7 @@ backButton.frame = CGRectMake(100.0, self.view.frame.size.height-100, 100.0, 40.
 }
 
 - (void)setUpSymptomSelector {
+
     symptomSelector = [[UITableView alloc] initWithFrame:CGRectMake(self.view.center.x-150, self.view.center.y-220, 300, 200) style:UITableViewStylePlain];
     symptomSelector.delegate = self;
     symptomSelector.dataSource = self;
@@ -221,7 +221,6 @@ backButton.frame = CGRectMake(100.0, self.view.frame.size.height-100, 100.0, 40.
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
