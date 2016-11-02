@@ -146,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cia-JM-uKD">
-                                <rect key="frame" x="25" y="464" width="458" height="98"/>
+                                <rect key="frame" x="11" y="468" width="458" height="98"/>
                                 <date key="date" timeIntervalSinceReferenceDate="499379853.71548498">
                                     <!--2016-10-28 20:37:33 +0000-->
                                 </date>
@@ -155,7 +155,7 @@
                                 <rect key="frame" x="-11" y="110" width="565" height="77"/>
                             </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08A-XT-UuM">
-                                <rect key="frame" x="116" y="210" width="217" height="30"/>
+                                <rect key="frame" x="104" y="210" width="217" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -165,13 +165,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-cQ-OUU">
-                                <rect key="frame" x="177" y="562" width="95" height="30"/>
-                                <state key="normal" title="Add symptom"/>
-                                <connections>
-                                    <action selector="addSymptomPressed:" destination="KdG-xW-3du" eventType="touchUpInside" id="cYT-RJ-KmV"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Severity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cur-is-aHj">
                                 <rect key="frame" x="11" y="81" width="63" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -188,29 +181,36 @@
                                 <rect key="frame" x="-98" y="271" width="431" height="180"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1G-JA-4Wy">
-                                <rect key="frame" x="104" y="430" width="107" height="30"/>
+                                <rect key="frame" x="36" y="430" width="107" height="30"/>
                                 <state key="normal" title="Add food group"/>
                                 <connections>
                                     <action selector="addFoodGroupPressed:" destination="KdG-xW-3du" eventType="touchUpInside" id="879-TS-SMy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Symptom food groups:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3l-S4-TrD">
-                                <rect key="frame" x="307" y="249" width="176" height="21"/>
+                                <rect key="frame" x="228" y="249" width="176" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2kL-zP-CS7">
-                                <rect key="frame" x="425" y="431" width="97" height="30"/>
+                                <rect key="frame" x="194" y="431" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jJT-gC-QaQ">
-                                <rect key="frame" x="275" y="278" width="240" height="128"/>
+                                <rect key="frame" x="228" y="278" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-cQ-OUU">
+                                <rect key="frame" x="104" y="562" width="95" height="30"/>
+                                <state key="normal" title="Add symptom"/>
+                                <connections>
+                                    <action selector="addSymptomPressed:" destination="KdG-xW-3du" eventType="touchUpInside" id="cYT-RJ-KmV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
