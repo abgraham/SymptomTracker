@@ -227,6 +227,7 @@ backButton.frame = CGRectMake(100.0, self.view.frame.size.height-100, 100.0, 40.
 
 - (void)saveCurrentState {
     [[NSUserDefaults standardUserDefaults] setInteger:currentSymptomIndex forKey:@"currentSymptomIndex"];
+    [[SymptomAPI sharedInstance] saveSymptoms];
 }
 
 - (void)loadPreviousState {

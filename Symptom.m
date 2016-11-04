@@ -21,14 +21,16 @@
     return self;
 }
 
-- (id)initWithcoder:(NSCoder *)decoder {
+- (id)initWithCoder:(NSCoder *)decoder {
 
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
 
         self.time = [decoder decodeObjectForKey:@"time"];
         self.severity = [decoder decodeIntegerForKey:@"severity"];
         self.bodyPart = [decoder decodeObjectForKey:@"bodyPart"];
         self.foodGroups = [decoder decodeObjectForKey:@"foodGroups"];
+        //self.foodGroups = [NSArray arrayWithObjects:@"Gluten", nil];
     }
 
     return self;

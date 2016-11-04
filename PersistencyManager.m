@@ -24,13 +24,12 @@
 - (id)init {
     self = [super init];
     if (self){
-
         NSData *data = [NSData dataWithContentsOfFile:[NSHomeDirectory() stringByAppendingString:@"/Documents/symptoms.bin"]];
-        symptoms = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        symptoms = [[NSKeyedUnarchiver unarchiveObjectWithData:data] mutableCopy];
 
         if (symptoms == nil) {
 
-            NSDateComponents* tomorrowComponents = [NSDateComponents new] ;
+            NSDateComponents* tomorrowComponents = [NSDateComponents new];
             tomorrowComponents.hour = -12;
             NSCalendar* calendar = [NSCalendar currentCalendar];
             NSDate *now = [NSDate date];

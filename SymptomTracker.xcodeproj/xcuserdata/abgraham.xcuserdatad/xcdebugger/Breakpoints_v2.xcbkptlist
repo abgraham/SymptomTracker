@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SymptomTracker/ViewController.m"
-            timestampString = "499956173.642403"
+            filePath = "PersistencyManager.m"
+            timestampString = "499958684.066604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
-            landmarkName = "-loadPreviousState"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-saveSymptoms"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SymptomTracker/ViewController.m"
-            timestampString = "499956175.148321"
+            filePath = "PersistencyManager.m"
+            timestampString = "499958694.966609"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "-saveCurrentState"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-addSymptomWithSeverity:location:foodGroups:date:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
