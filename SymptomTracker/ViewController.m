@@ -35,12 +35,14 @@
     [super viewDidLoad];
 
     currentSymptomIndex = 0;
+    [self loadPreviousState];
     [self setUpSegmentedControl];
     [self setUpSymptomSelector];
     [self getRelevantSymptoms];
     [self setUpSymptomTable];
     [self showDataForSymptomAtIndex:currentSymptomIndex];
     [self setUpButtons];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveCurrentState) name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
 - (void)testAnalyser {
@@ -221,6 +223,20 @@ backButton.frame = CGRectMake(100.0, self.view.frame.size.height-100, 100.0, 40.
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)saveCurrentState {
+    [[NSUserDefaults standardUserDefaults] setInteger:currentSymptomIndex forKey:@"currentSymptomIndex"];
+}
+
+- (void)loadPreviousState {
+
+    currentSymptomIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentSymptomIndex"];
+    [self showDataForSymptomAtIndex:currentSymptomIndex];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
