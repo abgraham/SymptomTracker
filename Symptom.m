@@ -21,4 +21,25 @@
     return self;
 }
 
+- (id)initWithcoder:(NSCoder *)decoder {
+
+    if (self = [super init]) {
+
+        self.time = [decoder decodeObjectForKey:@"time"];
+        self.severity = [decoder decodeIntegerForKey:@"severity"];
+        self.bodyPart = [decoder decodeObjectForKey:@"bodyPart"];
+        self.foodGroups = [decoder decodeObjectForKey:@"foodGroups"];
+    }
+
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+
+    [encoder encodeObject:self.time forKey:@"time"];
+    [encoder encodeInteger:self.severity forKey:@"severity"];
+    [encoder encodeObject:self.bodyPart forKey:@"bodyPart"];
+    [encoder encodeObject:self.foodGroups forKey:@"foodGroups"];
+}
+
 @end

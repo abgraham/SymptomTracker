@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Symptom : NSObject
+@interface Symptom : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSDate *time;
 @property (nonatomic) NSInteger severity;
