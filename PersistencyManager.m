@@ -45,8 +45,8 @@
 
             symptoms = [NSMutableArray arrayWithObjects:symptom1, symptom2, symptom3, symptom4, nil];
 
-            foodGroups = [NSArray arrayWithObjects:@"gluten", @"dairy", @"eggs", @"high-fiber", @"meat", @"high-fat", nil];
         }
+        foodGroups = [NSArray arrayWithObjects:@"gluten", @"dairy", @"eggs", @"high-fiber", @"meat", @"high-fat", nil];
     }
 
     return self;
