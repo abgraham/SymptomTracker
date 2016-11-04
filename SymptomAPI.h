@@ -20,6 +20,7 @@
 - (NSArray *)getFoodGroups;
 - (NSDictionary *)timeOfDayCountFromSeverity:(NSInteger)lowerSeverity toSeverity:(NSInteger)higherSeverity fromDate:(NSDate *)lowerDate toDate:(NSDate *)higherDate;
 - (void)addSymptomWithSeverity:(NSInteger)severity location:(NSString *)location foodGroups:(NSArray *)foodGroups date:(NSDate *)date;
+- (void)saveSymptoms;
 
 
 @end

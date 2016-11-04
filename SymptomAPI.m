@@ -82,5 +82,8 @@
     [persistencyManager addSymptomWithSeverity:severity location:location foodGroups:foodGroups date:date];
 }
 
+- (void)saveSymptoms {
+    [persistencyManager saveSymptoms];
+}
 
 @end
