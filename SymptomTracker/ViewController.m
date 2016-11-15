@@ -35,7 +35,6 @@
     [super viewDidLoad];
 
     currentSymptomIndex = 0;
-    [self loadPreviousState];
     [self setUpSegmentedControl];
     [self setUpSymptomSelector];
     [self getRelevantSymptoms];

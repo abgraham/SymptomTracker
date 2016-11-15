@@ -90,6 +90,7 @@
 - (IBAction)addFoodGroupPressed:(id)sender {
     NSInteger foodGroupPickerIndex = [foodGroupPicker selectedRowInComponent:0];
     [symptomFoodGroups addObject:foodGroupData[foodGroupPickerIndex]];
+    foodGroupList.text = [symptomFoodGroups componentsJoinedByString:@" "];
 }
 
 @end

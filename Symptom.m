@@ -30,7 +30,6 @@
         self.severity = [decoder decodeIntegerForKey:@"severity"];
         self.bodyPart = [decoder decodeObjectForKey:@"bodyPart"];
         self.foodGroups = [decoder decodeObjectForKey:@"foodGroups"];
-        //self.foodGroups = [NSArray arrayWithObjects:@"Gluten", nil];
     }
 
     return self;
