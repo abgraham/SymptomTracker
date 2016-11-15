@@ -47,8 +47,14 @@
 }
 
 - (NSString *)formatStatsDictionary:(NSDictionary *)statsDictionary {
-    NSString *dictionaryString = [NSString stringWithFormat:@"%@", statsDictionary];
-    return [dictionaryString substringWithRange:NSMakeRange(1, dictionaryString.length-2)];
+    NSMutableString *dictionaryString = [NSMutableString stringWithString:@""];
+    for (id key in statsDictionary){
+
+        id value = [statsDictionary objectForKey:key];
+        [dictionaryString appendString:[NSString stringWithFormat:@"%@ : %@ \n", key, value]];
+    }
+
+    return dictionaryString;
 }
 
 @end
