@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE31DD4D1E159501006E04BA /* SymptomLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE31DD4C1E159501006E04BA /* SymptomLogViewController.m */; };
 		DEC4D7261DBCAE5F0087DFC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4D7251DBCAE5F0087DFC6 /* main.m */; };
 		DEC4D7291DBCAE5F0087DFC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4D7281DBCAE5F0087DFC6 /* AppDelegate.m */; };
 		DEC4D72C1DBCAE5F0087DFC6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4D72B1DBCAE5F0087DFC6 /* ViewController.m */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE31DD4B1E159501006E04BA /* SymptomLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomLogViewController.h; sourceTree = "<group>"; };
+		DE31DD4C1E159501006E04BA /* SymptomLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomLogViewController.m; sourceTree = "<group>"; };
 		DEC4D7211DBCAE5F0087DFC6 /* SymptomTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymptomTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEC4D7251DBCAE5F0087DFC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DEC4D7271DBCAE5F0087DFC6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				DEFB4F3B1DC3BBA10036255F /* SymptomStatsViewController.m */,
 				DEC4D75E1DBE10810087DFC6 /* NewSymptomViewController.m */,
 				DEC4D72A1DBCAE5F0087DFC6 /* ViewController.h */,
+				DE31DD4B1E159501006E04BA /* SymptomLogViewController.h */,
+				DE31DD4C1E159501006E04BA /* SymptomLogViewController.m */,
 				DEC4D72B1DBCAE5F0087DFC6 /* ViewController.m */,
 			);
 			name = Controller;
@@ -295,6 +300,7 @@
 				DEC4D74F1DBCAEBA0087DFC6 /* Symptom.m in Sources */,
 				DEC4D7291DBCAE5F0087DFC6 /* AppDelegate.m in Sources */,
 				DEFB4F331DC3975F0036255F /* DataAnalyser.m in Sources */,
+				DE31DD4D1E159501006E04BA /* SymptomLogViewController.m in Sources */,
 				DEFB4F391DC3AA580036255F /* Symptom+ExtraProperties.m in Sources */,
 				DEC4D7261DBCAE5F0087DFC6 /* main.m in Sources */,
 				DEC4D7591DBCB8140087DFC6 /* PersistencyManager.m in Sources */,

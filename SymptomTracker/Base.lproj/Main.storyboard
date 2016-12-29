@@ -3,8 +3,36 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
+        <!--Symptom Log View Controller-->
+        <scene sceneID="7pv-5f-ygu">
+            <objects>
+                <viewController id="NNH-Gv-2ZS" customClass="SymptomLogViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bC3-GI-5Ir"/>
+                        <viewControllerLayoutGuide type="bottom" id="sB8-M5-VMZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fp3-FR-VQj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full symptom log" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpT-Df-4U3">
+                                <rect key="frame" x="27" y="93" width="131" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Pib-zY-ofz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UOb-cW-jlC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1221" y="-560"/>
+        </scene>
         <!--Symptom Stats View Controller-->
         <scene sceneID="f4m-bU-v0M">
             <objects>
@@ -122,16 +150,23 @@
                                 <segue destination="93G-7M-B13" kind="push" id="4LV-AK-DhG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add a symptom" id="3T2-ID-vXo">
-                            <connections>
-                                <segue destination="KdG-xW-3du" kind="push" id="fM9-Ad-HMp"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Add a symptom" id="3T2-ID-vXo">
+                                <connections>
+                                    <segue destination="KdG-xW-3du" kind="push" id="fM9-Ad-HMp"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="View all symptoms log      " id="0Fy-Av-GpP">
+                                <connections>
+                                    <segue destination="NNH-Gv-2ZS" kind="push" id="0BN-hl-4JD"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631" y="310"/>
+            <point key="canvasLocation" x="1563" y="310"/>
         </scene>
         <!--New Symptom View Controller-->
         <scene sceneID="yVX-H8-jSg">
