@@ -59,9 +59,14 @@
         [[SymptomAPI sharedInstance] addSymptomWithSeverity:severity location:location foodGroups:symptomFoodGroups date:date];
     }
 
+    [self displayAlert];
+}
+
+
+- (void)displayAlert {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"My Alert" message:@"Your new symptom has been saved"
                                                             preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action ) {}];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action ) {[self.navigationController popToRootViewControllerAnimated:YES];}];
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
 }
