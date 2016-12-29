@@ -87,7 +87,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     [self getRelevantSymptoms];
-    currentSymptomIndex = 0;
+    currentSymptomIndex = indexPath.row;
     [self showDataForSymptomAtIndex:currentSymptomIndex];
 }
 
@@ -151,7 +151,7 @@
 
 - (void)forwardButtonPressed:(id)sender {
 
-    if (currentSymptomIndex < [allSymptoms count]){
+    if (currentSymptomIndex < [allSymptoms count]-1){
         currentSymptomIndex += 1;
         [self showDataForSymptomAtIndex:currentSymptomIndex];
     }
