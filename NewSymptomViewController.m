@@ -58,6 +58,12 @@
         NSDate *date = datePicker.date;
         [[SymptomAPI sharedInstance] addSymptomWithSeverity:severity location:location foodGroups:symptomFoodGroups date:date];
     }
+
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"My Alert" message:@"Your new symptom has been saved"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action ) {}];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
