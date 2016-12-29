@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SymptomLogViewController : UIViewController
+@interface SymptomLogViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

@@ -7,8 +7,14 @@
 //
 
 #import "SymptomLogViewController.h"
+#import "SymptomAPI.h"
+#import "Symptom+StringRepresentation.h"
 
-@interface SymptomLogViewController ()
+@interface SymptomLogViewController () {
+
+    NSArray *allSymptoms;
+    __weak IBOutlet UITableView *symptomTable;
+}
 
 @end
 
@@ -16,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    allSymptoms = [[SymptomAPI sharedInstance] getSymptoms];
+    [self setUpSymptomTable];
     // Do any additional setup after loading the view.
 }
 
@@ -24,14 +32,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setUpSymptomTable {
+    symptomTable.delegate = self;
+    symptomTable.dataSource = self;
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath  {
+
+    UITableViewCell *symptomCell = [tableView dequeueReusableCellWithIdentifier:@"allSymptom"];
+    if (!symptomCell){
+        symptomCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"symptomCell"];
+    }
+    Symptom *symptom = allSymptoms[indexPath.row];
+    symptomCell.textLabel.text = [symptom str_time_date];
+    symptomCell.detailTextLabel.text = [symptom str_bodyPart];
+
+    return symptomCell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return allSymptoms.count;
+}
+
 
 @end

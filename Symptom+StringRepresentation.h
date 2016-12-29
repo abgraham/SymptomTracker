@@ -11,6 +11,7 @@
 @interface Symptom (StringRepresentation)
 
 - (NSString *)str_time;
+- (NSString *)str_time_date;
 - (NSString *)str_severity;
 - (NSString *)str_bodyPart;
 - (NSString *)stringOfKey:(NSString *)key;

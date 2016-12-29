@@ -16,6 +16,12 @@
     return [formatter stringFromDate:self.time];
 }
 
+- (NSString *)str_time_date {
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setDateFormat:@"YYYY-MM-dd 'at' HH:mm"];
+    return [formatter stringFromDate:self.time];
+}
+
 - (NSString *)str_severity{
     return [NSString stringWithFormat: @"%ld",self.severity];
 }
